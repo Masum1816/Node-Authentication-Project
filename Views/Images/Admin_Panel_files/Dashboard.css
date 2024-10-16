@@ -1,0 +1,257 @@
+*{
+	margin: 0px;
+	box-sizing: border-box;
+}
+:root{
+	--primary-color: #f3f5f7;
+    --primary-rgb-color: 243, 245, 247;
+	--secondary-color: #1d2630;
+	--secondary-rgb-color: 29, 38, 48;
+	--black-color: #212121;
+	--black-rgb-color: 33,33,33;
+    --white-color: #FFFFFF;
+    --white-rgb-color: 255, 255, 255;
+    --font: 'Inter';
+	--fs: 14px;
+	--lh: 21px;
+	--fw: 400;
+}
+body{
+	background-color: var(--primary-color);
+    font-family: var(--font);
+    font-size: var(--fs);
+    font-weight: var(--fw);
+    line-height: var(--lh);
+}
+ul,ol{
+	list-style: none;
+}
+.page-header{
+	height: 100%;
+	display: flex;
+}
+.logo{
+	width: 280px;
+	padding: 16px 24px;
+	border-right: 1px dotted #1d2630;
+	/* flex-grow: 2; */
+}
+.logo a{
+	text-decoration: none;
+}
+.version{
+	margin-left: 8px;
+	padding: 4.725px 8.4px;
+	background-color: #EAF6F2;
+	color: #2CA87F;
+	font-size: 10.5px;
+	font-family: var(--font);
+	font-weight: 500;
+	line-height: 10.5px;
+	text-align: center;
+	border-radius: 50px;
+	top: -10px;
+	position: relative;
+}
+.sub-header{
+	padding: 0px 25px;
+	width: calc(100% - 230px);
+	display: flex;
+	flex-grow: 1;
+}
+.close-sidebar{
+	transform: translateX(-100%);
+	width: 0;
+	transition: all 0.8s ease;
+}
+.sub-header-wrapper{
+	margin-right: 412px;
+	width:280px;
+}
+.list-unstyled{
+	width: 92px;
+	display: inline-flex;
+}
+.menu-styled{
+	min-height: 74px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	flex-direction: row;
+}
+.close-sidebar .icon-menu{
+	display: none;
+}
+.close-sidebar{
+	transform: translateX(-100%);
+	width: 0px;
+}
+.menu{
+	width: 44px;
+	height: 44px;
+	margin: 0px 4px;
+	position: relative;
+	font-weight: 500;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center; 
+	border-radius: 8px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+.menu:hover{
+	transform: scale(1.1);
+	background-color: #F0F1F2;
+}
+.icon-menu{
+	font-size: 24px;
+	position: relative;
+	color: #5B6B79;
+	z-index: 5;
+	transition: all 0.8s ease;
+	line-height: 1;
+	font-weight: var(--fw);
+}
+.sub-header-version{
+	width: 280px;
+	display: block;
+	margin-left: 180px;
+}
+.icon-styled{
+	display: inline-flex;;
+}
+.icon-styled-menu{
+	min-height: 74px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	flex-direction: row;
+}
+.pc-head-link{
+	margin: 0px 4px;
+	position: relative;
+	font-weight: 500;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+.pc-head-link:hover{
+	transform: scale(1.1);
+	background-color: #F0F1F2;
+}
+.avatar-menu:hover{
+	background-color: none;
+}
+.link-menu{
+	width: 24px;
+	height: 24px;
+	position: relative;
+	z-index: 5;
+	transition: all 0.8s ease;
+	vertical-align: middle;
+	color: #5B6B79;
+}
+.uper-case{
+	position: absolute;
+    top: 2px;
+    right: 2px;
+    border-radius: 50%;
+    font-size: 9px;
+    z-index: 9;
+	background-color: #2CA87F;
+	color: var(--white-color);
+	padding: 4.05px 7.2px;
+	right: 2px;
+	top: 2px;
+	line-height: 9px;
+	text-align: center;
+}
+.avatar-menu{
+	width: 40px;
+	transition: all 0.8s ease;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.page-body-wrapper{
+	display: flex;
+	border-right: 1px dotted #1d2630;
+}
+.slidebar{
+	width: 280px;
+	height: 100%;
+	height: calc(100vh - 100px);
+	left: 0;
+	right: 0;
+	position: fixed;
+	border-right: 1px dotted #2b2c2e;
+}
+.main-box{
+	margin: 0px 15px 15px;
+	background-color: var(--primary-color);
+	position: relative;
+	display: flex;
+}
+.card-body{
+	padding: 20px;
+	display: block;
+}
+.d-flex{
+	align-items: center;
+	display: flex;
+}
+.user-flex{
+	flex-shrink: 0;
+	display: block;
+}
+.user-flex img{
+	border-radius: 50%;
+	width: 45px;
+	vertical-align: middle;
+}
+.user-flex-name{
+	display: block;
+	margin: 0px 8px 0px 16px;
+}
+.user-flex-name h6{
+	font-weight: 600;
+	line-height: 16.8px;
+	display: block;
+	font-size: 14px;
+	font-family: var(--font);
+}
+.user-flex-name small{
+	font-size: 11.2px;
+	font-weight: 400;
+	font-family: var(--font);
+	line-height: 16.8px;
+}
+.btn-link-menu{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	font-size: 14px;
+    font-weight: 600;
+	width: 40px;
+    height: 40px;
+	color: #5b6b79;
+}
+.btn-link-menu i{
+	height: 22px;
+	width: 22px;
+	vertical-align: middle;
+	overflow: hidden;
+	font-size: 14px;
+	font-weight: 600;
+}
+/* .page-body{
+	width:100%;
+	margin-left: 230px;
+	height: calc(100vh - 100px);
+	background-color:bisque;
+} */

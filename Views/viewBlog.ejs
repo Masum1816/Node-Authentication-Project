@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blog</title>
+    <link href="Style/main.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="font-header text-center mt-3 mb-2">My Blogs</h1><hr>
+
+    <div class="container">
+        <div class="row d-flex flex-wrap">
+            <% blogs.forEach(blog => { %>
+                <div class="col-4">
+                    <div class="form-container-my-blog mb-5">
+                        <div class="card-body">
+                            <% if(blog.image) { %>
+                                <img src="/<%= blog.image %>" alt="Blog Image" class="blog-image">
+                            <% } %>
+                            <h2 class="font-title mt-3">Title :  <%= blog.title %></h2>
+                            <p class="font-content">Content :  <%= blog.content %></p>
+                            <button type="submit" class="form-btn w-100 mt-3"><a class="text-white" href="/editBlog/<%= blog._id %>">Edit</a></button>
+                            <button type="submit" class="form-btn w-100 mt-3"><a class="text-white" href="/deleteBlog/<%= blog._id %>">Delete</a></button>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="Style/main.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <form action="/addBlog" method="post" enctype="multipart/form-data">
+
+        <div class="container">
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-2 mt-5">
+        
+            <div class="form-container">
+              <p class="title">Add Blog</p>
+              <form class="form" method="post" action="/logIn">
+                <input type="text" class="input w-100" name="title" placeholder="Title">
+                <input type="text" class="input mt-2 w-100" name="content" placeholder="Content">
+                <input type="file" class="input mt-2 image-width" name="image" placeholder="Image">
+                <button type="submit" class="form-btn w-100 mt-3">Submit</button>
+              </form>
+              
+            </div>
+          </div>
+          </div>
+          </div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
