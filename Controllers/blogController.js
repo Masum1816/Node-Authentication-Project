@@ -101,7 +101,7 @@ const DeleteBlogController = async (req, res) => {
 const AllBlogsController = async (req, res) => {
     console.log("ALL BLOGS CONTROLLER");
 
-    const blogs = await BlogSchema.find({ user: req.user._id })
+    const blogs = await BlogSchema.find()
         .populate('user', 'name')
         .populate({
             path: 'comments',

@@ -40,13 +40,13 @@
     <div class="container">
         <div class="row">
             <div class="col-4"></div>
-            <div class="form-container-profile mt-5">
+            <div class="form-container-topic mt-5">
                 <h3 class="form-btn-profile w-100 mt-3 mb-2 text-center">Profile</h3>
                 <% if (user) { %>
                     <div class="user-card">
                         <div class="user-card-content">
-                            <h3 class="input w-100 mt-3">Name: <%= user.name %></h3>
-                            <h3 class="input w-100 mt-3">Email: <%= user.email %></h3>
+                            <p class="input w-100 mt-3">Name: <%= user.name %></p>
+                            <p class="input w-100 mt-3">Email: <%= user.email %></p>
                         </div>
                     </div>
                     <a href="/changePassword" class="sign-up-link">Change Password</a>

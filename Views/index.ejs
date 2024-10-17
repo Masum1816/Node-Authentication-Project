@@ -203,13 +203,57 @@ ul,ol{
 .icon-styled{
 	display: inline-flex;;
 }
-.icon-styled-menu{
-	min-height: 74px;
-	display: flex;
-	align-items: center;
-	position: relative;
-	flex-direction: row;
+.icon-styled-menu {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-direction: row;
+    cursor: pointer;
 }
+
+.icon-styled-menu-dropdown {
+    width: 75px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    background-color: var(--white-color);
+    box-shadow: 0px 4px 15px rgba(var(--black-rgb-color), 0.2);
+    padding: 10px 20px;
+    text-transform: capitalize;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.icon-styled-menu:hover .icon-styled-menu-dropdown {
+    opacity: 1;
+	cursor: pointer;
+    visibility: visible;
+    top: 100%;
+}
+
+.icon-styled-menu-dropdown a {
+    display: block;
+    padding: 8px 0;
+    color: var(--primary-text-color);
+	cursor: pointer;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.icon-styled-menu-dropdown a:hover {
+    background-color: var(--light-gray-color);
+	cursor: pointer;
+    color: var(--hover-text-color);
+    border-radius: 5px;
+}
+
 .pc-head-link{
 	margin: 0px 4px;
 	position: relative;
@@ -289,11 +333,11 @@ ul,ol{
 	/* border-right: 1px dotted #2b2c2e; */
 }
 .main-box{
-	margin: 0px 15px 15px;
+	/* margin: 0px 15px 15px; */
 	background-color: var(--primary-color);
 	position: relative;
 	display: flex;
-	margin: 0px 15px 15px;
+	margin: 15px 15px 15px 15px;
 }
 .card-body{
 	padding-right: 20px;
@@ -308,6 +352,33 @@ ul,ol{
 	border: 1px solid #dfdfdf;
 	background-color: #eaebec;
 	border-radius: 8px;
+}
+.card-body-link{
+    padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: auto;
+	line-height: 21px;
+	box-shadow: 0px 8px 24px rgba(27, 46, 94, 0.08);
+	border: 1px solid #dfdfdf;
+	background-color: #eaebec;
+	border-radius: 8px;
+}
+.card-body-link svg{
+	color: rgb(78, 78, 78);
+	padding-top: 2px;
+	align-items: center;
+}
+.card-body-link a{
+	color: rgb(78, 78, 78);
+	padding-left: 10px;
+	justify-content: center;
+	text-decoration: none;
+	align-items: center;
 }
 .d-flex{
 	align-items: center;
@@ -1713,6 +1784,20 @@ ul,ol{
 .bmw{
 	background-color: #EDF2FF;
 }
+.pages{
+    width: 100%;
+    height: 100px;
+    background-color: #2CA87F;
+}
+
+.link-name{
+	justify-content: center;
+	/* margin-top: 50px; */
+}
+
+
+
+
     </style>
 
 </head>
@@ -1742,15 +1827,13 @@ ul,ol{
                 </div>
                 <div class="sub-header-version">
                     <ul class="icon-styled">
-                        <p class="sign-up-label">
+                        <!-- <p class="sign-up-label">
                             <span><a href="/profile" class="sign-up-link">Profile</a></span>
                             <span><a href="/addTopic" class="sign-up-link">Add Topic</a></span>
                             <span><a href="/blogForm" class="sign-up-link">Add Blog</a></span>
                             <span><a href="/blog" class="sign-up-link">My Blog</a></span>
                             <span><a href="/allBlogs" class="sign-up-link">All Blogs</a></span>
-                            <span><a href="/logIn" class="sign-up-link">LogIn</a></span>
-                            <span><a href="/logOut" class="sign-up-link">LogOut</a></span>
-                        </p>
+                        </p> -->
                         <li class="icon-styled-menu">
                             <a class="pc-head-link" href="javascript:void(0)">
                                 <i class="link-menu" data-feather="sun"></i>
@@ -1772,11 +1855,16 @@ ul,ol{
                                 <span class="uper-case">3</span>
                             </a>
                         </li>
-                        <li class="icon-styled-menu">
+                        <li class="icon-styled-menu" aria-haspopup="true" aria-expanded="false">
                             <a class="pc-head-link" href="javascript:void(0)">
                                 <img class="avatar-menu" src="Images/Avatar.jpeg" alt="Avatar">
                             </a>
+                            <div class="icon-styled-menu-dropdown" role="menu">
+                                <a href="/logIn" class="sign-up-link" role="menuitem"><span>LogIn</span></a>
+                                <a href="/logOut" class="sign-up-link" role="menuitem"><span>LogOut</span></a>
+                            </div>
                         </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -1784,7 +1872,7 @@ ul,ol{
         <div class="page-body-wrapper">
             <div class="slidebar">
                 <div class="main-box">
-                    <div class="card-body background-color">
+                    <div class="card-body mb-2 background-color">
                         <div class="d-flex">
                             <div class="user-flex">
                                 <img src="Images/Avatar-1.jpeg" alt="Avatar-1">
@@ -1801,1039 +1889,90 @@ ul,ol{
                 </div>
                 <nav class="navbar">
                     <ul>
-                        <li class="navigation">
-                            <a href="#">
-                                <span>navigation</span>
-                            </a>
+                        <li>
+                            <div class="main-box">
+								<div class="card-body-link">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+										<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+										<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+									  </svg>
+									<a href="/profile" class="link-name">Profile Page</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="dashboard">
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="trending-up"></i>
-                                </span>
-                                <span class="dashboard-title">Dashboard</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                                <span class="second-circle">2</span>
-                            </a>
+                        <li>
+                            <div class="main-box">
+                                <div class="card-body-link">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+										<path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0"/>
+									  </svg>
+                                    <a href="/addTopic">Add Topic</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="layout"></i>
-                                </span>
-                                <span class="dashboard-title">Layouts</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
+                        <li>
+                            <div class="main-box">
+                                <div class="card-body-link">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+										<path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+										<path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+									  </svg>
+                                    <a href="/topic">View Topic</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="navigation">
-                            <a href="#">
-                                <span>Widget</span>
-                            </a>
+                        <li>
+                            <div class="main-box">
+                                <div class="card-body-link">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+										<path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0"/>
+									  </svg>
+                                    <a href="/blogForm">Add Blog</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="octagon"></i>
-                                </span>
-                                <span class="dashboard-title">Statistics</span>
-                            </a>
+                        <li>
+                            <div class="main-box">
+                                <div class="card-body-link">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-substack" viewBox="0 0 16 16">
+										<path d="M15 3.604H1v1.891h14v-1.89ZM1 7.208V16l7-3.926L15 16V7.208zM15 0H1v1.89h14z"/>
+									  </svg>
+                                    <a href="/blog">My Blog</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="file-text"></i>
-                                </span>
-                                <span class="dashboard-title">Data</span>
-                            </a>
+                        <li>
+                            <div class="main-box">
+                                <div class="card-body-link">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backpack2-fill" viewBox="0 0 16 16">
+										<path d="M5 13h6v-3h-1v.5a.5.5 0 0 1-1 0V10H5z"/>
+										<path d="M6 2v.341C3.67 3.165 2 5.388 2 8v1.191l-1.17.585A1.5 1.5 0 0 0 0 11.118V13.5A1.5 1.5 0 0 0 1.5 15h1c.456.607 1.182 1 2 1h7c.818 0 1.544-.393 2-1h1a1.5 1.5 0 0 0 1.5-1.5v-2.382a1.5 1.5 0 0 0-.83-1.342L14 9.191V8a6 6 0 0 0-4-5.659V2a2 2 0 1 0-4 0m2-1a1 1 0 0 1 1 1v.083a6 6 0 0 0-2 0V2a1 1 0 0 1 1-1m0 3a4 4 0 0 1 3.96 3.43.5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14A4 4 0 0 1 8 4M4.5 9h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5"/>
+									  </svg>
+                                    <a href="/allBlogs">All Blogs</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="pie-chart"></i>
-                                </span>
-                                <span class="dashboard-title">Chart</span>
-                            </a>
+                        <li>
+                            <div class="main-box">
+                                <div class="card-body-link">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+										<path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+									  </svg>
+                                    <a href="/logIn">LogIn</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="navigation">
-                            <a href="#">
-                                <span>UI Components</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="box"></i>
-                                </span>
-                                <span class="dashboard-title">Components</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="disc"></i>
-                                </span>
-                                <span class="dashboard-title">Icons</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Feather
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Font Awesome 5
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Material
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Tabler
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Phosphor
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Custom
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="navigation">
-                            <a href="#">
-                                <span>Forms</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="plus-square"></i>
-                                </span>
-                                <span class="dashboard-title">Forms Elements</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Form Basic
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Form Floating
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Form Options
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Input Groups
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Cheakbox
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Radio
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Switch
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Mega Option
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="cpu"></i>
-                                </span>
-                                <span class="dashboard-title">Forms Plugins</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Date
-                                        <span class="aerray-right">
-                                            <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item-submenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Datepicker
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Date Range Picker
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Timepicker
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Select
-                                        <span class="aerray-right">
-                                            <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item-submenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Choices JS
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Google reCaptcha
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Input Masks
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Clipboard
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Nouislider
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Bootstrap Switch
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Typeahead
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="edit"></i>
-                                </span>
-                                <span class="dashboard-title">Text Editors</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Tinymce
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Quill
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       CK Editor
-                                       <span class="aerray-right">
-                                        <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                    </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item-submenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Classic
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Document
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Inline
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Balloon
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Mark Down
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="layers"></i>
-                                </span>
-                                <span class="dashboard-title">Form Layouts</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Layouts
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Multicolumn
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Actionbars
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Sticky Action Bars
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="upload"></i>
-                                </span>
-                                <span class="dashboard-title">File Upload</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Dropzone
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Uppy
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="file-minus"></i>
-                                </span>
-                                <span class="dashboard-title">Form Validation</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="crop"></i>
-                                </span>
-                                <span class="dashboard-title">Image Cropper</span>
-                            </a>
-                        </li>
-                        <li class="navigation">
-                            <a href="#">
-                                <span>Table</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="table"></i>
-                                </span>
-                                <span class="dashboard-title">Bootstrap Table</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Basic Table
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Sizing Table
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Border Table
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Styling Table
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="command"></i>
-                                </span>
-                                <span class="dashboard-title">Vanilla Table</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Basic intialization
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Dynamic Import
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Render Column Cells
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Column Manipulation
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Datetime Sorting
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Methods
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Add Rows
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Fetch API
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Filters
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Export
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="grid"></i>
-                                </span>
-                                <span class="dashboard-title">Data Table</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Advance intialization
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Styling
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       API
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Plug-in
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Data sources
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="file-plus"></i>
-                                </span>
-                                <span class="dashboard-title">DT Extensions</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Autofill
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Button
-                                        <span class="aerray-right">
-                                            <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item-submenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Basic Button
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Data Export
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Coll Recorder
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Fixed Columns
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Key Table
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Responsive
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Row Recorder
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Fetch API
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Scroller
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Select Table
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="navigation">
-                            <a href="#">
-                                <span>Charts ^ Maps</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="grid"></i>
-                                </span>
-                                <span class="dashboard-title">Charts</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Apex Chart
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="map"></i>
-                                </span>
-                                <span class="dashboard-title">Maps</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Vector Maps
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="navigation">
-                            <a href="#">
-                                <span>Application</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="calendar"></i>
-                                </span>
-                                <span class="dashboard-title">Calendar</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="message-square"></i>
-                                </span>
-                                <span class="dashboard-title">Chat</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="user"></i>
-                                </span>
-                                <span class="dashboard-title">Maps</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="briefcase"></i>
-                                </span>
-                                <span class="dashboard-title">E-commerce</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Product
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Product Details
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Product List
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Add New Product
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Checkout
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="file"></i>
-                                </span>
-                                <span class="dashboard-title">File Manager</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="mail"></i>
-                                </span>
-                                <span class="dashboard-title">Mail</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="user"></i>
-                                </span>
-                                <span class="dashboard-title">Users</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Account Profile
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Social Media
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="navigation">
-                            <a href="#">
-                                <span>Pages</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="shield"></i>
-                                </span>
-                                <span class="dashboard-title">Authentication</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Authentication 1
-                                        <span class="aerray-right">
-                                            <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item-submenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Login
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Register
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Forgot Password
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Check Mail
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Reset Password
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Code Verification
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Authentication 2
-                                        <span class="aerray-right">
-                                            <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Login
-                                            </a>
-                                        </li>
-                                        <li class="pc-item-submenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Register
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Forgot Password
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Check Mail
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Reset Password
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Code Verification
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Authentication 3
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="flag"></i>
-                                </span>
-                                <span class="dashboard-title">Maintenance</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Error 404
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                       Error 500
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Under Construction
-                                        <span class="aerray-right">
-                                            <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item-submenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Under Construction 1
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Under Construction 2
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Coming Soon
-                                        <span class="aerray-right">
-                                            <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item-sunmenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Coming Soon 1
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Coming Soon 2
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="phone-call"></i>
-                                </span>
-                                <span class="dashboard-title">Contact Us</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="dollar-sign"></i>
-                                </span>
-                                <span class="dashboard-title">Price</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Price 1
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Price 2
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="send"></i>
-                                </span>
-                                <span class="dashboard-title">Landing</span>
-                            </a>
-                        </li>
-                        <li class="navigation">
-                            <a href="#">
-                                <span>Other</span>
-                            </a>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="credit-card"></i>
-                                </span>
-                                <span class="dashboard-title">Menu Levels</span>
-                                <span class="aerray-right">
-                                    <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                </span>
-                            </a>
-                            <ul class="pc-submenu">
-                                <li class="pc-submenu-active">
-                                    <a class="pc-link" href="#">
-                                        Level 2.1
-                                    </a>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Level 2.2
-                                        <span class="aerray-right">
-                                            <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item-submenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Level 3.1
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Level 3.2
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Level 3.3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pc-item">
-                                    <a class="pc-link" href="#">
-                                        Level 2.3
-                                        <span class="aerray-right">
-                                            <i class="main-icon-aerray" data-feather="chevron-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="pc-submenu-logic">
-                                        <li class="pc-item-submenu">
-                                            <a class="pc-link-submenu" href="#">
-                                                Level 3.1
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Level 3.2
-                                            </a>
-                                        </li>
-                                        <li class="pc-item">
-                                            <a class="pc-link-submenu" href="#">
-                                                Level 3.3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dashboard"> 
-                            <a class="dashboard-item" href="#">
-                                <span class="dashboard-icon">
-                                    <i class="main-icon" data-feather="save"></i>
-                                </span>
-                                <span class="dashboard-title">Sample Page</span>
-                            </a>
+                        <li>
+                            <div class="main-box">
+                                <div class="card-body-link">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+										<path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+									  </svg>
+                                    <a href="/logOut">LogOut</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -3033,16 +2172,14 @@ ul,ol{
                             </div>
                             <div class="card-chart-body">
                                 <div class="user-list">
-                                    <% if (user && user.length > 0) { %>
+                                    <% if (user) { %>
                                         <ul>
-                                            <% user.forEach(function(user) { %>
                                                 <div class="user-card">
                                                     <div class="user-card-content">
                                                         <h6 class="user-name"><%= user.name %></h6>
                                                         <p class="user-email"><%= user.email %></p>
                                                     </div>
                                                 </div>
-                                            <% }); %>
                                         </ul>
                                     <% } else { %>
                                         <p>No users found.</p>

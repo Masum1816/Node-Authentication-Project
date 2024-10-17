@@ -4,12 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTP Confirmation</title>
+    <link href="Style/" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .form-container-topic{
+            width: 350px;
+            /* height: 700px; */
+            background-color: #fff;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 10px 20px;
+        }
+        .input {
+            border-radius: 20px;
+            border: 1px solid #c0c0c0;
+            outline: 0 !important;
+            box-sizing: border-box;
+            padding: 12px 15px;
+        }
+        .form-btn {
+            padding: 10px 15px;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            border-radius: 20px;
+            border: 0;
+            outline: 0;
+            background-color: teal;
+            color: white;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        .otp-validation{
+            font-size: 8px;
+            margin-left: 10px;
+            color: gray;
+        }
+    </style>
 </head>
 <body>
-    <form action="/otpConfirmForm/<%= userId %>" method="post">
-        <label>OTP : </label>
-        <input type="text" name="otp" placeholder="Enter OTP">
-        <button type="submit">Save</button>
-    </form>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="form-container-topic mt-5">
+                <h3 class="form-btn w-100 text-center mt-3">OTP Validation</h3><hr>
+                <form action="/otpConfirmForm/<%= userId %>" method="post">
+                    <input type="text" class="input w-100 mt-3" name="otp" placeholder="Enter OTP">
+                    <p class="otp-validation">Send OTP your email</p>
+                    <button type="submit" class="form-btn w-100 text-center mb-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

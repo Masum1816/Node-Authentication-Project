@@ -150,16 +150,16 @@ const ChangePasswordFormController = async (req, res) => {
 
             if(newPassword == confirmPassword){
 
-                bcrypt.hash(newPassword, saltRounds, async (err, hashPassword) => {
+                await bcrypt.hash(newPassword, saltRounds, async (err, hashPassword) => {
 
                     console.log("HASH PASSWORD : ", hashPassword);
 
                     const updatePassword = await User.updateOne({_id: user[0]._id}, {password: hashPassword});
                     console.log("UPDATE PASSWORD : ", updatePassword);
-                    res.redirect('/');
-
+                    
                 })
-
+                
+                res.redirect('/');
             }
 
         }
@@ -174,7 +174,6 @@ const ChangePasswordFormController = async (req, res) => {
                 return res.redirect('/');
             }
             console.log('Logged out after password change');
-            res.redirect('/logIn');
         });
 
     }
@@ -196,8 +195,8 @@ const ForgetPasswordFormController = async (req, res) => {
     const userId = user.id;
     console.log("USER ID : ", userId);
 
-    const link = `http://localhost:3003/changeNewPassword/${userId}`;
-    console.log("LINK : ", link);
+    // const link = `http://localhost:3003/changeNewPassword/${userId}`;
+    // console.log("LINK : ", link);
 
     
     
